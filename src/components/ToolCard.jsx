@@ -1,0 +1,1 @@
+export default function ToolCard({tool}){return <a className="card" href={`/${tool.category}/${tool.slug}/`}><strong>{tool.name}</strong><span>{tool.description}</span></a>}

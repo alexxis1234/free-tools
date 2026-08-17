@@ -1,0 +1,11 @@
+import fs from "node:fs";
+import path from "node:path";
+const root=process.cwd(),dist=path.join(root,"dist"),s=fs.readFileSync(path.join(root,"src/data/tools.js"),"utf8");
+const re=/\{slug:"([^"]+)",category:"([^"]+)"/g;
+const tools=[...s.matchAll(re)].map(m=>`/${m[2]}/${m[1]}/`);
+const urls=["/","/text/","/developer/","/image/",...tools];
+const BASE_URL="https://free-tools.alexandr-beschastniy.workers.dev";
+const xml=`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(u=>`<url><loc>${BASE_URL}${u}</loc></url>`).join("")}</urlset>`;
+fs.writeFileSync(path.join(dist,"sitemap.xml"),xml);
+fs.writeFileSync(path.join(dist,"robots.txt"),`User-agent: *\nAllow: /\nSitemap: ${BASE_URL}/sitemap.xml\n`);
+console.log(`Sitemap URLs: ${urls.length}`);

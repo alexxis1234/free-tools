@@ -1,0 +1,1 @@
+export default function Footer(){return <footer>FreeTools — simple browser utilities.</footer>}

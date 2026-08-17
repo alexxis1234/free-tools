@@ -1,0 +1,1 @@
+export default v => {const n=Number(v.trim());if(!Number.isFinite(n))throw Error("Enter a valid timestamp");const d=new Date(n*1000);if(Number.isNaN(d.getTime()))throw Error("Invalid timestamp");return d.toISOString();};

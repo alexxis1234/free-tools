@@ -1,0 +1,1 @@
+export default v => {const o=JSON.parse(v),esc=x=>String(x).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;"),node=(k,x)=>Array.isArray(x)?`<${k}>${x.map(i=>node("item",i)).join("")}</${k}>`:x&&typeof x==="object"?`<${k}>${Object.entries(x).map(([a,b])=>node(a,b)).join("")}</${k}>`:`<${k}>${esc(x??"")}</${k}>`;return node("root",o);};

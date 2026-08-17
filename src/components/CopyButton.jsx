@@ -1,0 +1,1 @@
+export default function CopyButton({text}){return <button className="secondary" onClick={()=>navigator.clipboard?.writeText(text)}>Copy</button>}

@@ -1,0 +1,1 @@
+export default v => { const seen=new Set(); return v.split(/(\s+)/).map(x=>{if(!/\S/.test(x))return x;const k=x.toLocaleLowerCase();if(seen.has(k))return "";seen.add(k);return x;}).join("").replace(/[ \t]{2,}/g," ").trim(); };

@@ -1,0 +1,1 @@
+export default v => {const a=JSON.parse(v);if(!Array.isArray(a)||!a.length||a.some(x=>!x||typeof x!=="object"||Array.isArray(x)))throw Error("Expected an array of JSON objects");const h=[...new Set(a.flatMap(x=>Object.keys(x)))],q=x=>`"${String(x??"").replaceAll('"','""')}"`;return [h.map(q).join(","),...a.map(x=>h.map(k=>q(x[k])).join(","))].join("\n");};

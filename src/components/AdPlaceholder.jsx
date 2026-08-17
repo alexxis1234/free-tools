@@ -1,0 +1,1 @@
+export default function AdPlaceholder(){return <div className="ad">Advertisement</div>}

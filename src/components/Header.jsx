@@ -1,0 +1,1 @@
+import React from "react"; export default function Header(){return <header><a className="brand" href="/">FreeTools</a><nav><a href="/text/">Text</a><a href="/developer/">Developer</a><a href="/image/">Image</a></nav></header>}
