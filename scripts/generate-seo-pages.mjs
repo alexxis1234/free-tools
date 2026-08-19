@@ -14,7 +14,7 @@ const css="/assets/"+assets.find(x=>x.endsWith(".css"));
 const esc=s=>s.replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
 const nav=`<header><a class="brand" href="/">FreeTools</a><nav><a href="/text/">Text</a><a href="/developer/">Developer</a><a href="/image/">Image</a></nav></header>`;
 const footer=`<footer>FreeTools — simple browser utilities.</footer>`;
-const shell=(title,desc,url,body)=>`<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${BASE_URL}${url}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${BASE_URL}${url}"><link rel="stylesheet" href="${css}"></head><body data-seo-shell="true"><script>window.__FREE_TOOLS_SEO_SHELL__=true;</script><main class="container">${nav}${body}${footer}</main><script type="module" src="${js}"></script></body></html>`;
+const shell=(title,desc,url,body)=>`<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${BASE_URL}${url}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${BASE_URL}${url}"><link rel="stylesheet" href="${css}"></head><body data-seo-shell="true"><main class="container">${nav}${body}${footer}</main><script type="module" src="${js}"></script></body></html>`;
 
 fs.mkdirSync(dist,{recursive:true});
 
