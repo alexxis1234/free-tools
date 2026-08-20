@@ -1,2 +1,3 @@
-import { xmlToJson } from "./extraDeveloperTools.js";
+const esc=s=>String(s).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&apos;");
+const xmlToJson=v=>{const doc=new DOMParser().parseFromString(v,"application/xml");if(doc.querySelector("parsererror"))throw Error("Invalid XML");const convert=n=>{if(n.children.length===0)return n.textContent;const o={};for(const c of n.children){const val=convert(c);o[c.tagName]=o[c.tagName]===undefined?val:Array.isArray(o[c.tagName])?[...o[c.tagName],val]:[o[c.tagName],val]}return o};return JSON.stringify({[doc.documentElement.tagName]:convert(doc.documentElement)},null,2)};
 export default xmlToJson;
